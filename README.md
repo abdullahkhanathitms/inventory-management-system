@@ -12,7 +12,7 @@ A robust, enterprise-ready **Inventory Management System** built with **Laravel 
 ---
 
 ## 🌐 Live Demo
-🔗 **Live Application:** [https://pdf-editor.freedev.app/](https://pdf-editor.freedev.app/)  
+🔗 **Live Application:** [https://inventory-system.freedev.app](https://inventory-system.freedev.app/)  
 *(Note: Replace with your active hosting URL if different)*
 
 ---
