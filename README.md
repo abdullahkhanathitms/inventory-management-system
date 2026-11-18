@@ -1,58 +1,153 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 📦 Inventory Management System (RBAC)
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+[![Laravel](https://img.shields.io/badge/Laravel-11.x-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)](https://laravel.com)
+[![PHP](https://img.shields.io/badge/PHP-8.2%2B-777BB4?style=for-the-badge&logo=php&logoColor=white)](https://php.net)
+[![MySQL](https://img.shields.io/badge/MySQL-Database-4479A1?style=for-the-badge&logo=mysql&logoColor=white)](https://mysql.com)
+[![Spatie Permission](https://img.shields.io/badge/Spatie-Permission-orange?style=for-the-badge&logo=laravel)](https://spatie.be/docs/laravel-permission)
+[![Bootstrap](https://img.shields.io/badge/Bootstrap-5.3-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white)](https://getbootstrap.com)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
-## About Laravel
+A robust, enterprise-ready **Inventory Management System** built with **Laravel 11**, **MySQL**, and **Spatie Laravel-Permission**. Designed with strict Role-Based Access Control (RBAC) to manage products, categories, and system users across varying access tiers (*Admin, Manager, Staff*).
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 🌐 Live Demo
+🔗 **Live Application:** [http://inventory-system.infinityfreeapp.com](http://inventory-system.infinityfreeapp.com)  
+*(Note: Replace with your active hosting URL if different)*
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+---
 
-## Learning Laravel
+## ✨ Key Features
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- **🔐 Role-Based Access Control (RBAC):** Integrated with the industry-standard `spatie/laravel-permission` package for enterprise authorization.
+- **👥 Multi-Tier User Roles:**
+  - **Admin:** Full access to manage products, categories, and assign/update user roles.
+  - **Manager:** Authorized to create, view, and edit products and categories.
+  - **Staff:** Read-only access to view products and inventory status.
+- **🏷️ Product & Category Management:** Full CRUD operations with category relationships, soft delete/restore mechanisms, and real-time inventory counts.
+- **📊 Interactive Dashboard:** Clean, responsive analytics cards showing live counts of total products, categories, and active users based on user permissions.
+- **👤 User Management Panel:** Dedicated administration interface to inspect registered users and update their system roles dynamically.
+- **🎨 Modern & Clean UI:** Designed with a sleek palette (`#2563eb` primary blue, `#1e293b` sidebar), Inter typography, responsive tables, and intuitive action modals.
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+---
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+## 🛡️ Roles & Permissions Matrix
 
-## Agentic Development
+| Permission | Admin | Manager | Staff |
+|---|:---:|:---:|:---:|
+| `view products` | ✅ | ✅ | ✅ |
+| `create products` | ✅ | ✅ | ❌ |
+| `edit products` | ✅ | ✅ | ❌ |
+| `delete products` | ✅ | ❌ | ❌ |
+| `view categories` | ✅ | ✅ | ❌ |
+| `create categories` | ✅ | ✅ | ❌ |
+| `edit categories` | ✅ | ✅ | ❌ |
+| `delete categories` | ✅ | ❌ | ❌ |
+| `manage users & roles` | ✅ | ❌ | ❌ |
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+---
 
-```bash
-composer require laravel/boost --dev
+## 🛠️ Tech Stack & Architecture
 
-php artisan boost:install
+- **Backend:** Laravel 11.x, Eloquent ORM, Route Middleware (`role`, `permission`)
+- **Package:** `spatie/laravel-permission`
+- **Database:** MySQL (Relational schema with foreign keys and permission mapping tables)
+- **Frontend:** Blade Templates, Bootstrap 5.3, Bootstrap Icons, Google Font Inter
+- **Authentication:** Custom session-based authentication with Bcrypt password hashing
+
+---
+
+## 🚀 Getting Started Locally
+
+### Prerequisites
+- PHP >= 8.2
+- Composer
+- MySQL (XAMPP / Laragon / Native)
+
+### Installation Steps
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/abdullahkhanathitms/inventory-management-system.git
+   cd inventory-management-system
+   ```
+
+2. **Install Composer dependencies:**
+   ```bash
+   composer install
+   ```
+
+3. **Configure Environment:**
+   ```bash
+   cp .env.example .env
+   ```
+   Configure your MySQL database settings in `.env`:
+   ```env
+   DB_CONNECTION=mysql
+   DB_HOST=127.0.0.1
+   DB_PORT=3306
+   DB_DATABASE=project_2nd
+   DB_USERNAME=root
+   DB_PASSWORD=
+   ```
+
+4. **Generate Application Key:**
+   ```bash
+   php artisan key:generate
+   ```
+
+5. **Run Migrations & Seeders:**
+   *(Sets up tables, default roles, permissions, and initial test user)*
+   ```bash
+   php artisan migrate --seed
+   ```
+
+6. **Start Development Server:**
+   ```bash
+   php artisan serve
+   ```
+   Visit: `http://127.0.0.1:8000`
+
+---
+
+## 📁 Project Structure
+
+```plaintext
+app/
+ ├── Http/Controllers/
+ │    ├── Admin/UserController.php # User management & role assignment
+ │    ├── AuthController.php       # Authentication logic (Login, Register, Logout)
+ │    ├── CategoryController.php   # Category CRUD operations
+ │    ├── DashboardController.php  # Metrics & role-specific stats
+ │    └── ProductController.php    # Product CRUD operations
+ └── Models/
+      ├── Category.php             # Category Eloquent model
+      ├── Product.php              # Product model with category relation
+      └── User.php                 # User model with HasRoles trait
+database/
+ ├── migrations/                   # Schema tables (users, products, categories, permissions)
+ └── seeders/
+      └── RolePermissionSeeder.php # Seeds default roles & permissions
+resources/
+ └── views/
+      ├── admin/users/             # User management views
+      ├── auth/                    # Clean Login & Register views
+      ├── categories/              # Category listing, create, edit
+      ├── products/                # Product listing, create, edit
+      ├── dashboard.blade.php      # Main dashboard with metric cards
+      └── layouts/app.blade.php    # Unified sidebar layout
 ```
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+---
 
-## Contributing
+## 👨‍💻 Author
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+**Abdullah Khan**  
+- **GitHub:** [@abdullahkhanathitms](https://github.com/abdullahkhanathitms)  
+- **Project Repository:** [inventory-management-system](https://github.com/abdullahkhanathitms/inventory-management-system)
 
-## Code of Conduct
+---
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## 📄 License
 
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+This project is open-sourced software licensed under the [MIT License](LICENSE).
